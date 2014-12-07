@@ -1,0 +1,15 @@
+body {
+    margin-top: 20px;
+}
+
+.results-box {
+    display: none;
+}
+
+input#derefUrl {
+    margin-bottom: 16px;
+}
+
+button#clearBtn {
+    margin-right: 5px;
+}

@@ -1,0 +1,24 @@
+{
+    "name": "beryllium/deref",
+    "description": "Dereference pesky shortened URLs to the full domain/URL",
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "silex/silex": "~2.0@dev",
+        "components/angular.js": "dev-master",
+        "components/jquery": "dev-master",
+        "robloach/component-installer": "dev-master",
+        "components/bootstrap-default": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Boyd",
+            "email": "kevin.boyd@gmail.com"
+        }
+    ],
+    "config": {
+        "component-dir": "web/components"
+    },
+    "minimum-stability": "dev"
+}
