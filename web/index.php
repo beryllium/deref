@@ -25,7 +25,7 @@ $app->get('/', function() use ($app) {
           <p class="lead text-primary">Ever come across a suspicious short URL and wanted to know where it <strong>really</strong> goes?</p>
           <p>Paste it here and find out!</p>
           <form ng-submit="submitForm()" role="form">
-            <input type="url" class="input input-medium form-control" name="url" id="derefUrl" ng-model="derefUrl" placeholder="http://" required>
+            <input type="text" class="input input-medium form-control" name="url" id="derefUrl" ng-model="derefUrl" placeholder="http://" required>
             <button type="submit" class="btn btn-primary btn-medium pull-right">Show Where It Goes &raquo;</button>
             <button type="reset" class="btn btn-default btn-medium pull-right" id="clearBtn">Clear</button>
           </form>
