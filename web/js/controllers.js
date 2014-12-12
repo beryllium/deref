@@ -11,16 +11,7 @@ app.controller('derefController', function ($scope, derefService) {
         $('.results-box').hide();
 
         // ensure provided URLs are HTTP:// or HTTPS://
-        if ($scope.derefUrl) {
-            var derefUrlComponents = $scope.derefUrl.split('://');
-
-            if (derefUrlComponents.length == 1) {
-                $scope.derefUrl = 'http://' + $scope.derefUrl;
-            } else if (derefUrlComponents[0] != 'http' && derefUrlComponents[0] != 'https') {
-                $scope.formError('Please specify a valid HTTP or HTTPS URL.');
-                return false;
-            }
-        } else {
+        if ($scope.derefUrl.trim().length === 0) {
             $scope.formError('Please specify a URL.');
             return false;
         }
@@ -34,14 +25,13 @@ app.controller('derefController', function ($scope, derefService) {
     };
 
     $scope.formError = function(message, code) {
-        code = code ? code : '';
         $('input#derefUrl').before('<div class="alert alert-danger alert-dismissible fade in" role="alert" id="error-alert">'
             + '<button type="button" class="close" data-dismiss="alert">'
             + '<span aria-hidden="true">×</span>'
             + '<span class="sr-only">Close</span>'
             + '</button>'
-            + '<h4>' + code + ' Error!</h4>'
-            + '<p>' + message + '</p>'
+            + '<h4>' + htmlentities(code || '') + ' Error!</h4>'
+            + '<p>'  + htmlentities(message) + '</p>'
             + '</div>'
         );
     };
