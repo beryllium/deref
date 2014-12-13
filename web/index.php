@@ -13,7 +13,7 @@ $app->get('/', function() use ($app) {
 <html>
   <head>
     <title>Deref</title>
-    <link href="/components/bootstrap-default/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/css/app.css" rel="stylesheet"/>
   </head>
   <body ng-app="DerefApp">
