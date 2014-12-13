@@ -10,34 +10,29 @@ app.controller('derefController', function ($scope, derefService) {
         $('div#error-alert').remove();
         $('.results-box').hide();
 
-        // If we have a URL to check, send it to the checking route
-        // Otherwise, mention that the URL field is required
-        // (this is useful on Safari and IE9, which don't support HTML5 form input validation)
-        if ($scope.derefUrl) {
-            derefService.derefUrl($scope.derefUrl).success(function (response) {
-                $('.results-box').show();
-                $scope.derefResponse = response;
-            }).error(function (error, errorCode) {
-                $('input#derefUrl').before('<div class="alert alert-danger alert-dismissible fade in" role="alert" id="error-alert">'
-                    + '<button type="button" class="close" data-dismiss="alert">'
-                    + '<span aria-hidden="true">×</span>'
-                    + '<span class="sr-only">Close</span>'
-                    + '</button>'
-                    + '<h4>' + errorCode + ' Error!</h4>'
-                    + '<p><small>' + error.error + '</small></p>'
-                    + '</div>'
-                );
-            });
-        } else {
-            $('input#derefUrl').before('<div class="alert alert-danger alert-dismissible fade in" role="alert" id="error-alert">'
-                + '<button type="button" class="close" data-dismiss="alert">'
-                + '<span aria-hidden="true">×</span>'
-                + '<span class="sr-only">Close</span>'
-                + '</button>'
-                + '<h4>Error!</h4>'
-                + '<p>Please specify a URL.</p>'
-                + '</div>'
-            );
+        // ensure provided URLs are HTTP:// or HTTPS://
+        if ($scope.derefUrl.trim().length === 0) {
+            $scope.formError('Please specify a URL.');
+            return false;
         }
+
+        derefService.derefUrl($scope.derefUrl).success(function (response) {
+            $('.results-box').show();
+            $scope.derefResponse = response;
+        }).error(function (error, errorCode) {
+            $scope.formError(error.error, errorCode);
+        });
+    };
+
+    $scope.formError = function(message, code) {
+        $('input#derefUrl').before('<div class="alert alert-danger alert-dismissible fade in" role="alert" id="error-alert">'
+            + '<button type="button" class="close" data-dismiss="alert">'
+            + '<span aria-hidden="true">×</span>'
+            + '<span class="sr-only">Close</span>'
+            + '</button>'
+            + '<h4>' + htmlentities(code || '') + ' Error!</h4>'
+            + '<p>'  + htmlentities(message) + '</p>'
+            + '</div>'
+        );
     };
 });
