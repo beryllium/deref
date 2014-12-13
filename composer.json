@@ -5,10 +5,10 @@
         "php": ">=5.4.0",
         "ext-curl": "*",
         "silex/silex": "~2.0@dev",
+        "robloach/component-installer": "dev-master",
         "components/angular.js": "dev-master",
         "components/jquery": "dev-master",
-        "robloach/component-installer": "dev-master",
-        "components/bootstrap-default": "dev-master"
+        "components/bootstrap": "dev-master"
     },
     "license": "MIT",
     "authors": [
