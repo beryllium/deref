@@ -31,6 +31,27 @@ $app->get('/', function() use ($app) {
             <button type="reset" class="btn btn-default btn-medium pull-right" id="clearBtn" onclick="$('div#error-alert').remove();">Clear</button>
           </form>
         </div>
+        </div>
+        <div class="col-md-6">
+
+        <div class="panel panel-primary results-box">
+          <div class="panel-heading">
+            <h3 class="panel-title">Result</h3>
+          </div>
+          <div class="panel-body">
+            <p id="Hops">This URL has {{ derefResponse.route_log.length - 1 }} redirect hop(s) to the final destination.</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Domain:</strong> {{ derefResponse.final_domain }}</li>
+            <li class="list-group-item"><strong>Final URL:</strong> {{ derefResponse.final_url }}</li>
+            <li class="list-group-item"><strong>Redirect Log:</strong>
+            <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="route in derefResponse.route_log">{{ \$index }} - {{route}}</li>
+            </ul>
+            </li>
+          </ul>
+        </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">Quick API Reference</div>
@@ -63,31 +84,9 @@ $app->get('/', function() use ($app) {
 }</pre>
             </div>
         </div>
-        <p class="text-center">a <a href="http://whateverthing.com">whateverthing</a> project</p>
-        </div>
-        <div class="col-md-6">
-
-        <div class="panel panel-primary results-box">
-          <div class="panel-heading">
-            <h3 class="panel-title">Result</h3>
-          </div>
-          <div class="panel-body">
-            <p id="Hops">This URL has {{ derefResponse.route_log.length - 1 }} redirect hop(s) to the final destination.</p>
-          </div>
-          <ul class="list-group">
-            <li class="list-group-item"><strong>Domain:</strong> {{ derefResponse.final_domain }}</li>
-            <li class="list-group-item"><strong>Final URL:</strong> {{ derefResponse.final_url }}</li>
-            <li class="list-group-item"><strong>Redirect Log:</strong>
-            <ul class="list-group">
-                <li class="list-group-item"
-                    ng-repeat="route in derefResponse.route_log">{{ \$index }} - {{route}}</li>
-            </ul>
-            </li>
-          </ul>
-        </div>
-
         </div>
       </div>
+      <p class="text-center">a <a href="http://whateverthing.com">whateverthing</a> project</p>
     </div>
     <script src="components/jquery/jquery.js"></script>
     <script src="components/bootstrap/js/bootstrap.min.js"></script>
