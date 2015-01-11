@@ -32,6 +32,37 @@ $app->get('/', function() use ($app) {
           </form>
         </div>
 
+        <div class="panel panel-info">
+            <div class="panel-heading">Quick API Reference</div>
+            <div class="panel-body">
+                <h5 class="subheader">POST /deref</h5>
+                <pre>curl -d"url=google.com" http://deref.link/deref</pre>
+                Or:
+                <pre>curl -H "Content-Type: application/json" \
+     -d'{"url": "google.com"}' \
+     http://deref.link/deref</pre>
+                <h6>Parameters:</h6>
+                <table class="table table-hover">
+                <tbody>
+                <tr>
+                <td><strong>url</strong></td>
+                <td><small>The URL-encoded link to dereference. HTTP or HTTPS.<br>
+                <em>Leading "http://" can be omitted, but not for HTTPS.</em></small></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6>Returns JSON: <small>(return value reformatted for readability)</small></h6>
+                <pre>{
+    "start_url":    "google.com",
+    "final_url":    "http://www.google.com/",
+    "final_domain": "www.google.com",
+    "route_log": [
+        "http://google.com",
+        "http://www.google.com/"
+    ]
+}</pre>
+            </div>
+        </div>
         <p class="text-center">a <a href="http://whateverthing.com">whateverthing</a> project</p>
         </div>
         <div class="col-md-6">
@@ -79,6 +110,13 @@ END;
 // Deref route - accepts a URL parameter and responds with the redirect log in JSON
 $app->post('/deref', function(Request $request) use ($app) {
     $url = $request->get('url');
+
+    if (empty($url) && $request->getContentType() == 'json') {
+        $content = $request->getContent();
+        $content = !empty($content) ? json_decode($content)  : null;
+        $content = (array)$content;
+        $url     = !empty($content['url']) ? $content['url'] : null;
+    }
 
     try {
         $result = getRedirectLog($url);
