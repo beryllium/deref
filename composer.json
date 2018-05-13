@@ -19,6 +19,5 @@
     ],
     "config": {
         "component-dir": "web/components"
-    },
-    "minimum-stability": "dev"
+    }
 }
