@@ -1,13 +1,14 @@
 <?php
 
-$app = require __DIR__ . '/../bootstrap.php';
+$app       = require __DIR__ . '/../bootstrap.php';
+$container = $app->getContainer();
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
 
 // Default (root) route - sets up the Angular controllers and defines the site appearance.
-$app->get('/', function() use ($app) {
-    $config    = $app['deref.config'];
+$app->get('/', function() use ($container) {
+    $config    = $container['deref.config'];
     $analytics = isset($config['analytics']) ? $config['analytics'] : '';
     $output    = <<<END
 <html>
@@ -107,30 +108,24 @@ END;
 });
 
 // Deref route - accepts a URL parameter and responds with the redirect log in JSON
-$app->post('/deref', function(Request $request) use ($app) {
-    $url = $request->get('url');
-
-    if (empty($url) && $request->getContentType() == 'json') {
-        $content = $request->getContent();
-        $content = !empty($content) ? json_decode($content)  : null;
-        $content = (array)$content;
-        $url     = !empty($content['url']) ? $content['url'] : null;
-    }
+$app->post('/deref', function(ServerRequestInterface $request, Response $response) {
+    $body = $request->getParsedBody();
+    $url  = $body['url'] ?? null;
 
     try {
         $result = getRedirectLog($url);
     } catch (DerefException $e) {
-        return new JsonResponse(['error' => $e->getMessage()], 400);
+        return $response->withJson(['error' => $e->getMessage()], 400);
     } catch (Exception $e) {
-        return new JsonResponse(['error' => 'An unknown error occurred'], 500);
+        return $response->withJson(['error' => 'An unknown error occurred'], 500);
     }
 
-    return new JsonResponse([
+    return $response->withJson([
         'start_url'    => $url,
         'final_url'    => end($result),
         'final_domain' => parse_url(end($result), PHP_URL_HOST),
         'route_log'    => $result,
-    ]);
+    ], 200);
 });
 
 $app->run();
@@ -209,7 +204,9 @@ function filterUrl($url)
     $url_scheme = parse_url($url, PHP_URL_SCHEME);
     if (in_array($url_scheme, ['http', 'https'])) {
         return $url;
-    } else if (!$url_scheme && 'http' == parse_url('http://' . $url, PHP_URL_SCHEME)) {
+    }
+
+    if (!$url_scheme && 'http' == parse_url('http://' . $url, PHP_URL_SCHEME)) {
         return 'http://' . $url;
     }
 
