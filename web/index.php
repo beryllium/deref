@@ -58,11 +58,11 @@ $app->get('/', function() use ($container) {
             <div class="panel-heading">Quick API Reference</div>
             <div class="panel-body">
                 <h5 class="subheader">POST /deref</h5>
-                <pre>curl -d"url=google.com" http://deref.link/deref</pre>
+                <pre>curl -d"url=google.com" https://deref.link/deref</pre>
                 Or:
                 <pre>curl -H "Content-Type: application/json" \
      -d'{"url": "google.com"}' \
-     http://deref.link/deref</pre>
+     https://deref.link/deref</pre>
                 <h6>Parameters:</h6>
                 <table class="table table-hover">
                 <tbody>
@@ -87,7 +87,7 @@ $app->get('/', function() use ($container) {
         </div>
         </div>
       </div>
-      <p class="text-center">a <a href="http://whateverthing.com">whateverthing</a> project</p>
+      <p class="text-center">a <a href="https://whateverthing.com">whateverthing</a> project</p>
     </div>
     <script src="components/jquery/jquery.js"></script>
     <script src="components/bootstrap/js/bootstrap.min.js"></script>
