@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66553c589580ec0c1e866fa82b425425",
+    "content-hash": "226b874bdc68f24811032bd52074c817",
     "packages": [
         {
             "name": "components/angular.js",
@@ -899,7 +899,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0",
+        "php": ">=7.0.0",
         "ext-curl": "*"
     },
     "platform-dev": []
