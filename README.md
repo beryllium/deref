@@ -3,7 +3,7 @@
 
 Ever come across a suspicious short URL and wanted to know where it **really** goes?
 
-**\*Deref** (pronounced "De-Ref") is a quick experiment in learning [AngularJS][angular] with a [Silex][silex] PHP backend.
+**\*Deref** (pronounced "De-Ref") is a quick experiment in learning [AngularJS][angular] with a [SlimPHP][slim] backend.
 
 It uses cURL to follow the redirect chain on pasted URLs, logging all the hops
 and showing the final result using Angular and [Twitter Bootstrap][bootstrap].
@@ -12,7 +12,7 @@ To try it out, clone the source and use [Composer][composer] to install vendors:
 
 $> composer install
 
-Or, check it out online at [http://deref.link/][deref]
+Or, check it out online at [https://deref.link/][deref]
 
 Usage
 -----
@@ -51,7 +51,8 @@ Author
 [silex]:         http://silex.sensiolabs.org/
 [bootstrap]:     http://getbootstrap.com/
 [composer]:      https://getcomposer.org/
-[deref]:         http://deref.link/
-[whateverthing]: http://whateverthing.com/
-[blogpost]:      http://whateverthing.com/blog/2014/12/07/angularjs-and-silex/
-[@beryllium9]:   http://twitter.com/beryllium9
+[deref]:         https://deref.link/
+[whateverthing]: https://whateverthing.com/
+[blogpost]:      https://whateverthing.com/blog/2014/12/07/angularjs-and-silex/
+[@beryllium9]:   https://twitter.com/beryllium9
+[slim]:          https://www.slimframework.com/
