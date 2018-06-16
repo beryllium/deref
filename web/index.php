@@ -180,13 +180,77 @@ function getRedirectLog($url, $depth = 0)
         throw new CommunicationException(curl_error($curl));
     }
 
-    // If this is a redirect response, that means we've got to go deeper
+    // If this is an HTTP 301/302 redirect response, that means we've got to go deeper
     // Recurse with a $depth + 1 to make sure we don't go too deep
     if ($redirect) {
         return (array_merge([$url], getRedirectLog($redirect, $depth + 1)));
     }
 
+    // If this is an HTTP 200 response, we must fetch the body (at least the first few KB)
+    // and scan for a meta redirect URL
+    $metaRedirect = checkMetaRedirectUrl($url);
+    if ($metaRedirect) {
+        return (array_merge([$url], getRedirectLog($metaRedirect, $depth + 1)));
+    }
+
     return [$url];
+}
+
+function checkMetaRedirectUrl($url) {
+    $curl = curl_init($url);
+    $data = fopen('php://memory', 'w+b');
+    $opts = [
+        CURLOPT_FOLLOWLOCATION       => false,
+        CURLOPT_HEADER               => false,
+        CURLOPT_RANGE                => '0-40000',
+        CURLOPT_RETURNTRANSFER       => true,
+        CURLOPT_CONNECTTIMEOUT       => 2,
+        CURLOPT_TIMEOUT              => 2,
+        CURLOPT_MAX_RECV_SPEED_LARGE => 200000,
+        CURLOPT_USERAGENT            => 'deref',  // fixes an issue with facebook redirecting to "/unsupported-browser"
+        CURLOPT_FILE                 => $data,    // this needs to write to a tmp file so that timed-out content can be read
+    ];
+
+    // Only allow valid SSL hosts
+    // This could cause some consternation in the real world, due to the complexity of SSL configuration on servers
+    // (both those running the code, and those being talked to by the code)
+    if (parse_url($url, PHP_URL_SCHEME) == 'https') {
+        $opts[CURLOPT_SSL_VERIFYPEER] = true;
+        $opts[CURLOPT_SSL_VERIFYHOST] = 2;
+    }
+
+    curl_setopt_array($curl, $opts);
+    curl_exec($curl);
+
+    rewind($data);
+    $result = stream_get_contents($data);
+
+    fclose($data);
+
+    if (!$result) {
+        throw new CommunicationException(curl_error($curl));
+    }
+
+    // tidy HTML fragment to ensure it can be parsed
+    // extract metadata and look for a redirect URL
+
+    try {
+        $crawler = new \Symfony\Component\DomCrawler\Crawler($result);
+        $content = $crawler->filter('meta[http-equiv=refresh]')->attr('content');
+    } catch (InvalidArgumentException $e) {
+    }
+
+    if ($content ?? false) {
+        $elements   = explode(';', $content, 2);
+        $contentUrl = $elements[1] ?? false;
+    }
+
+    if ($contentUrl ?? false) {
+        $elements    = explode('=', $contentUrl, 2);
+        $redirectUrl = $elements[1] ?? false;
+    }
+
+    return $redirectUrl ?? false;
 }
 
 /**
