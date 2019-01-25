@@ -3,13 +3,18 @@
 $app       = require __DIR__ . '/../bootstrap.php';
 $container = $app->getContainer();
 
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Request;
 use Slim\Http\Response;
+use Deref\Exceptions\DerefException;
 
 // Default (root) route - sets up the Angular controllers and defines the site appearance.
-$app->get('/', function() use ($container) {
+$app->get('/', function(Request $request) use ($container) {
+    /** @var \Psr\Log\LoggerInterface $logger */
+    $logger = $container['logger'];
+    $logger->info('pageload', [$request->getServerParams()]);
+
     $config    = $container['deref.config'];
-    $analytics = isset($config['analytics']) ? $config['analytics'] : '';
+    $analytics = $config['analytics'] ?? '';
     $output    = <<<END
 <html>
   <head>
@@ -108,15 +113,28 @@ END;
 });
 
 // Deref route - accepts a URL parameter and responds with the redirect log in JSON
-$app->post('/deref', function(ServerRequestInterface $request, Response $response) {
-    $body = $request->getParsedBody();
-    $url  = $body['url'] ?? null;
+$app->post('/deref', function(Request $request, Response $response) use ($container) {
+    /** @var \Psr\Log\LoggerInterface $logger */
+    $logger = $container['logger'];
+
+    /** @var \Deref\Deref $deref */
+    $deref = $container['deref'];
+
+    $body   = $request->getParsedBody();
+    $url    = $body['url'] ?? null;
+    $start  = microtime(true);
+
+    $logger->info('deref request', ['url' => $url]);
 
     try {
-        $result = getRedirectLog($url);
+        $result = $deref->getRedirectLog($url);
+        $logger->info(
+            'deref response',
+            ['url' => $url, 'result' => $result, 'time_taken' => number_format(microtime(true) - $start, 4)]
+        );
     } catch (DerefException $e) {
         return $response->withJson(['error' => $e->getMessage()], 400);
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         return $response->withJson(['error' => 'An unknown error occurred'], 500);
     }
 
@@ -129,155 +147,3 @@ $app->post('/deref', function(ServerRequestInterface $request, Response $respons
 });
 
 $app->run();
-
-/**
- * Follow all the redirects of a URL and return an array containing all results.
- *
- * This is a recursive method that calls itself until the redirect chain is exhausted or else
- * the max recursion depth is reached (>10 redirects, in this case)
- *
- * @param  string   $url    URL to check
- * @param  int      $depth  (internal) Current recursion depth (starts at 0)
- *
- * @return array                        An array of URL matches
- * @throws TooManyRedirectsException    If recursion depth is exceeded
- * @throws InvalidUrlException          If URL fails validation
- * @throws CommunicationException       If a Curl error happens
- */
-function getRedirectLog($url, $depth = 0)
-{
-    if ($depth > 10) {
-        throw new TooManyRedirectsException('Too Many Redirects');
-    }
-
-    $url = filterUrl($url);
-
-    $curl = curl_init($url);
-    $opts = [
-        CURLOPT_FOLLOWLOCATION => false,
-        CURLOPT_HEADER         => false,
-        CURLOPT_RETURNTRANSFER => false,
-        CURLOPT_CONNECTTIMEOUT => 2,
-        CURLOPT_TIMEOUT        => 2,
-        CURLOPT_NOBODY         => true,
-        CURLOPT_USERAGENT      => 'deref', // fixes an issue with facebook redirecting to "/unsupported-browser"
-    ];
-
-    // Only allow valid SSL hosts
-    // This could cause some consternation in the real world, due to the complexity of SSL configuration on servers
-    // (both those running the code, and those being talked to by the code)
-    if (parse_url($url, PHP_URL_SCHEME) == 'https') {
-        $opts[CURLOPT_SSL_VERIFYPEER] = true;
-        $opts[CURLOPT_SSL_VERIFYHOST] = 2;
-    }
-
-    curl_setopt_array($curl, $opts);
-
-    $result   = curl_exec($curl);
-    $redirect = curl_getinfo($curl, CURLINFO_REDIRECT_URL);
-
-    if (!$result) {
-        throw new CommunicationException(curl_error($curl));
-    }
-
-    // If this is an HTTP 301/302 redirect response, that means we've got to go deeper
-    // Recurse with a $depth + 1 to make sure we don't go too deep
-    if ($redirect) {
-        return (array_merge([$url], getRedirectLog($redirect, $depth + 1)));
-    }
-
-    // If this is an HTTP 200 response, we must fetch the body (at least the first few KB)
-    // and scan for a meta redirect URL
-    $metaRedirect = checkMetaRedirectUrl($url);
-    if ($metaRedirect) {
-        return (array_merge([$url], getRedirectLog($metaRedirect, $depth + 1)));
-    }
-
-    return [$url];
-}
-
-function checkMetaRedirectUrl($url) {
-    $curl = curl_init($url);
-    $data = fopen('php://memory', 'w+b');
-    $opts = [
-        CURLOPT_FOLLOWLOCATION       => false,
-        CURLOPT_HEADER               => false,
-        CURLOPT_RANGE                => '0-40000',
-        CURLOPT_RETURNTRANSFER       => true,
-        CURLOPT_CONNECTTIMEOUT       => 2,
-        CURLOPT_TIMEOUT              => 2,
-        CURLOPT_MAX_RECV_SPEED_LARGE => 200000,
-        CURLOPT_USERAGENT            => 'deref',  // fixes an issue with facebook redirecting to "/unsupported-browser"
-        CURLOPT_FILE                 => $data,    // this needs to write to a tmp file so that timed-out content can be read
-    ];
-
-    // Only allow valid SSL hosts
-    // This could cause some consternation in the real world, due to the complexity of SSL configuration on servers
-    // (both those running the code, and those being talked to by the code)
-    if (parse_url($url, PHP_URL_SCHEME) == 'https') {
-        $opts[CURLOPT_SSL_VERIFYPEER] = true;
-        $opts[CURLOPT_SSL_VERIFYHOST] = 2;
-    }
-
-    curl_setopt_array($curl, $opts);
-    curl_exec($curl);
-
-    rewind($data);
-    $result = stream_get_contents($data);
-
-    fclose($data);
-
-    if (!$result) {
-        throw new CommunicationException(curl_error($curl));
-    }
-
-    // tidy HTML fragment to ensure it can be parsed
-    // extract metadata and look for a redirect URL
-
-    try {
-        $crawler = new \Symfony\Component\DomCrawler\Crawler($result);
-        $content = $crawler->filter('meta[http-equiv=refresh]')->attr('content');
-    } catch (InvalidArgumentException $e) {
-    }
-
-    if ($content ?? false) {
-        $elements   = explode(';', $content, 2);
-        $contentUrl = $elements[1] ?? false;
-    }
-
-    if ($contentUrl ?? false) {
-        $elements    = explode('=', $contentUrl, 2);
-        $redirectUrl = $elements[1] ?? false;
-    }
-
-    return $redirectUrl ?? false;
-}
-
-/**
- * Filter URLs to ensure they are http:// or https://
- * If a URL does not provide a scheme, it will be given http://
- *
- * @param  string   $url        URL to filter
- *
- * @return string               Filtered URL
- * @throws InvalidUrlException  If the URL is unusable
- */
-function filterUrl($url)
-{
-    // Ensure the URL is OK to work with
-    $url_scheme = parse_url($url, PHP_URL_SCHEME);
-    if (in_array($url_scheme, ['http', 'https'])) {
-        return $url;
-    }
-
-    if (!$url_scheme && 'http' == parse_url('http://' . $url, PHP_URL_SCHEME)) {
-        return 'http://' . $url;
-    }
-
-    throw new InvalidUrlException('Invalid URL encountered in redirect chain');
-}
-
-class DerefException            extends Exception {};
-class TooManyRedirectsException extends DerefException {}; // Too Many Redirects: https://www.youtube.com/watch?v=QrGrOK8oZG8
-class InvalidUrlException       extends DerefException {};
-class CommunicationException    extends DerefException {};
