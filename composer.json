@@ -9,8 +9,8 @@
         "components/jquery": "^3.2",
         "components/bootstrap": "^3.3",
         "slim/slim": "^3.10",
-        "symfony/dom-crawler": "^4.1",
-        "symfony/css-selector": "^4.1",
+        "symfony/dom-crawler": "^3.4",
+        "symfony/css-selector": "^3.4",
         "monolog/monolog": "^1.24"
     },
     "license": "MIT",
