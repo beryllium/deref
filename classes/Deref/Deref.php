@@ -31,13 +31,14 @@ class Deref
      *
      * @param  string $url                  URL to check
      * @param  int    $depth                (internal) Current recursion depth (starts at 0)
+     * @param  bool   $checkMeta            Whether to check for html-based meta tag redirects
      *
      * @return array                        An array of URL matches
      * @throws TooManyRedirectsException    If recursion depth is exceeded
      * @throws InvalidUrlException          If URL fails validation
      * @throws CommunicationException       If a Curl error happens
      */
-    public function getRedirectLog($url, $depth = 0)
+    public function getRedirectLog($url, $depth = 0, $checkMeta = false)
     {
         if ($depth > $this->maxHops) {
             throw new TooManyRedirectsException('Too Many Redirects');
@@ -68,15 +69,15 @@ class Deref
         // If this is an HTTP 301/302 redirect response, that means we've got to go deeper
         // Recurse with a $depth + 1 to make sure we don't go too deep
         if ($redirect) {
-            return array_merge([$url], $this->getRedirectLog($redirect, $depth + 1));
+            return array_merge([$url], $this->getRedirectLog($redirect, $depth + 1, $checkMeta));
         }
 
         // If this is an HTTP 200 response, we must fetch the body (at least the first few KB)
         // and scan for a meta redirect URL
-        $metaRedirect = $this->checkMetaRedirectUrl($url);
+        $metaRedirect = $this->checkMetaRedirectUrl($url, $checkMeta);
         if ($metaRedirect) {
             $this->logger->debug('found meta redirect URL', ['url' => $metaRedirect]);
-            return array_merge([$url], $this->getRedirectLog($metaRedirect, $depth + 1));
+            return array_merge([$url], $this->getRedirectLog($metaRedirect, $depth + 1, $checkMeta));
         }
 
         return [$url];
@@ -85,13 +86,18 @@ class Deref
     /**
      * Examine a URL for HTML "meta" redirects
      *
-     * @param string $url   The URL to inspect; ideally, we should already know that this is an HTTP 200 URL
+     * @param string $url       The URL to inspect; ideally, we should already know that this is an HTTP 200 URL
+     * @param bool   $checkMeta Whether to check for the meta redirect tag
      *
-     * @return string       False if there is no meta redirect, otherwise the URL
+     * @return bool|string       False if there is no meta redirect, otherwise the URL
      * @throws CommunicationException
      */
-    public function checkMetaRedirectUrl($url)
+    public function checkMetaRedirectUrl($url, $checkMeta = true)
     {
+        if (!$checkMeta) {
+            return false;
+        }
+
         $data        = fopen('php://memory', 'w+b');
         $curlOptions = [];
 
