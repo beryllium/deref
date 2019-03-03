@@ -28,7 +28,7 @@ $app->get('/', function(Request $request) use ($container) {
         <div class="col-md-6">
 
         <div class="jumbotron">
-          <h1 class="text-uppercase">*<small>Deref</small></h1>
+          <h1 class="text-uppercase"><small>Deref</small><em class="text-lowercase text-muted">.link</em></h1>
           <p class="lead text-primary">Ever come across a suspicious short URL and wanted to know where it <strong>really</strong> goes?</p>
           <p>Paste it here and find out!</p>
           <form ng-submit="submitForm()" role="form">
@@ -36,6 +36,14 @@ $app->get('/', function(Request $request) use ($container) {
             <button type="submit" class="btn btn-primary btn-medium pull-right">Show Where It Goes &raquo;</button>
             <button type="reset" class="btn btn-default btn-medium pull-right" id="clearBtn" onclick="$('div#error-alert').remove();">Clear</button>
           </form>
+        </div>
+        <div class="col-md-8">
+        <p class="lead">Sample URLs</p>
+        <p>Want to try some samples? We've got you covered. Copy and paste one of these to try it out:</p>
+        <ul>
+            <li>http://t.co/GsOQGWW7D4</li>
+            <li>http://kevinboyd.ca</li>
+        </ul>
         </div>
         </div>
         <div class="col-md-6">

@@ -13,3 +13,12 @@ input#derefUrl {
 button#clearBtn {
     margin-right: 5px;
 }
+
+.jumbotron h1 {
+    font-family: 'serif';
+}
+
+.jumbotron em {
+    font-size: 0.5em;
+    opacity: 0.5;
+}
