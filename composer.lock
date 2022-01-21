@@ -4,542 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3f892e628c315a339e1d13db1400d15",
+    "content-hash": "5dfb9b28677c9c8458673eea63aeb394",
     "packages": [
         {
-            "name": "components/angular.js",
-            "version": "1.3.16",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/angular.js.git",
-                "reference": "84d0420402cf02b559d210b7286bd9a30655ca33"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/angular.js/zipball/84d0420402cf02b559d210b7286bd9a30655ca33",
-                "reference": "84d0420402cf02b559d210b7286bd9a30655ca33",
-                "shasum": ""
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "name": "angularjs",
-                    "scripts": [
-                        "angular.js"
-                    ],
-                    "files": [
-                        "angular-animate.js",
-                        "angular-animate.min.js",
-                        "angular-animate.min.js.map",
-                        "angular-cookies.js",
-                        "angular-cookies.min.js",
-                        "angular-cookies.min.js.map",
-                        "angular-csp.css",
-                        "angular-loader.js",
-                        "angular-loader.min.js",
-                        "angular-loader.min.js.map",
-                        "angular-mocks.js",
-                        "angular-resource.js",
-                        "angular-resource.min.js",
-                        "angular-resource.min.js.map",
-                        "angular-route.js",
-                        "angular-route.min.js",
-                        "angular-route.min.js.map",
-                        "angular-sanitize.js",
-                        "angular-sanitize.min.js",
-                        "angular-sanitize.min.js.map",
-                        "angular-scenario.js",
-                        "angular-touch.js",
-                        "angular-touch.min.js",
-                        "angular-touch.min.js.map",
-                        "angular.min.js",
-                        "angular.min.js.map",
-                        "i18n/angular-locale_af-na.js",
-                        "i18n/angular-locale_af-za.js",
-                        "i18n/angular-locale_af.js",
-                        "i18n/angular-locale_am-et.js",
-                        "i18n/angular-locale_am.js",
-                        "i18n/angular-locale_ar-001.js",
-                        "i18n/angular-locale_ar-ae.js",
-                        "i18n/angular-locale_ar-bh.js",
-                        "i18n/angular-locale_ar-dz.js",
-                        "i18n/angular-locale_ar-eg.js",
-                        "i18n/angular-locale_ar-iq.js",
-                        "i18n/angular-locale_ar-jo.js",
-                        "i18n/angular-locale_ar-kw.js",
-                        "i18n/angular-locale_ar-lb.js",
-                        "i18n/angular-locale_ar-ly.js",
-                        "i18n/angular-locale_ar-ma.js",
-                        "i18n/angular-locale_ar-om.js",
-                        "i18n/angular-locale_ar-qa.js",
-                        "i18n/angular-locale_ar-sa.js",
-                        "i18n/angular-locale_ar-sd.js",
-                        "i18n/angular-locale_ar-sy.js",
-                        "i18n/angular-locale_ar-tn.js",
-                        "i18n/angular-locale_ar-ye.js",
-                        "i18n/angular-locale_ar.js",
-                        "i18n/angular-locale_bg-bg.js",
-                        "i18n/angular-locale_bg.js",
-                        "i18n/angular-locale_bn-bd.js",
-                        "i18n/angular-locale_bn-in.js",
-                        "i18n/angular-locale_bn.js",
-                        "i18n/angular-locale_ca-ad.js",
-                        "i18n/angular-locale_ca-es.js",
-                        "i18n/angular-locale_ca.js",
-                        "i18n/angular-locale_cs-cz.js",
-                        "i18n/angular-locale_cs.js",
-                        "i18n/angular-locale_da-dk.js",
-                        "i18n/angular-locale_da.js",
-                        "i18n/angular-locale_de-at.js",
-                        "i18n/angular-locale_de-be.js",
-                        "i18n/angular-locale_de-ch.js",
-                        "i18n/angular-locale_de-de.js",
-                        "i18n/angular-locale_de-li.js",
-                        "i18n/angular-locale_de-lu.js",
-                        "i18n/angular-locale_de.js",
-                        "i18n/angular-locale_el-cy.js",
-                        "i18n/angular-locale_el-gr.js",
-                        "i18n/angular-locale_el.js",
-                        "i18n/angular-locale_en-as.js",
-                        "i18n/angular-locale_en-au.js",
-                        "i18n/angular-locale_en-bb.js",
-                        "i18n/angular-locale_en-be.js",
-                        "i18n/angular-locale_en-bm.js",
-                        "i18n/angular-locale_en-bw.js",
-                        "i18n/angular-locale_en-bz.js",
-                        "i18n/angular-locale_en-ca.js",
-                        "i18n/angular-locale_en-dsrt-us.js",
-                        "i18n/angular-locale_en-dsrt.js",
-                        "i18n/angular-locale_en-fm.js",
-                        "i18n/angular-locale_en-gb.js",
-                        "i18n/angular-locale_en-gu.js",
-                        "i18n/angular-locale_en-gy.js",
-                        "i18n/angular-locale_en-hk.js",
-                        "i18n/angular-locale_en-ie.js",
-                        "i18n/angular-locale_en-in.js",
-                        "i18n/angular-locale_en-iso.js",
-                        "i18n/angular-locale_en-jm.js",
-                        "i18n/angular-locale_en-mh.js",
-                        "i18n/angular-locale_en-mp.js",
-                        "i18n/angular-locale_en-mt.js",
-                        "i18n/angular-locale_en-mu.js",
-                        "i18n/angular-locale_en-na.js",
-                        "i18n/angular-locale_en-nz.js",
-                        "i18n/angular-locale_en-ph.js",
-                        "i18n/angular-locale_en-pk.js",
-                        "i18n/angular-locale_en-pr.js",
-                        "i18n/angular-locale_en-pw.js",
-                        "i18n/angular-locale_en-sg.js",
-                        "i18n/angular-locale_en-tc.js",
-                        "i18n/angular-locale_en-tt.js",
-                        "i18n/angular-locale_en-um.js",
-                        "i18n/angular-locale_en-us.js",
-                        "i18n/angular-locale_en-vg.js",
-                        "i18n/angular-locale_en-vi.js",
-                        "i18n/angular-locale_en-za.js",
-                        "i18n/angular-locale_en-zw.js",
-                        "i18n/angular-locale_en.js",
-                        "i18n/angular-locale_es-419.js",
-                        "i18n/angular-locale_es-ar.js",
-                        "i18n/angular-locale_es-bo.js",
-                        "i18n/angular-locale_es-cl.js",
-                        "i18n/angular-locale_es-co.js",
-                        "i18n/angular-locale_es-cr.js",
-                        "i18n/angular-locale_es-do.js",
-                        "i18n/angular-locale_es-ea.js",
-                        "i18n/angular-locale_es-ec.js",
-                        "i18n/angular-locale_es-es.js",
-                        "i18n/angular-locale_es-gq.js",
-                        "i18n/angular-locale_es-gt.js",
-                        "i18n/angular-locale_es-hn.js",
-                        "i18n/angular-locale_es-ic.js",
-                        "i18n/angular-locale_es-mx.js",
-                        "i18n/angular-locale_es-ni.js",
-                        "i18n/angular-locale_es-pa.js",
-                        "i18n/angular-locale_es-pe.js",
-                        "i18n/angular-locale_es-pr.js",
-                        "i18n/angular-locale_es-py.js",
-                        "i18n/angular-locale_es-sv.js",
-                        "i18n/angular-locale_es-us.js",
-                        "i18n/angular-locale_es-uy.js",
-                        "i18n/angular-locale_es-ve.js",
-                        "i18n/angular-locale_es.js",
-                        "i18n/angular-locale_et-ee.js",
-                        "i18n/angular-locale_et.js",
-                        "i18n/angular-locale_eu-es.js",
-                        "i18n/angular-locale_eu.js",
-                        "i18n/angular-locale_fa-af.js",
-                        "i18n/angular-locale_fa-ir.js",
-                        "i18n/angular-locale_fa.js",
-                        "i18n/angular-locale_fi-fi.js",
-                        "i18n/angular-locale_fi.js",
-                        "i18n/angular-locale_fil-ph.js",
-                        "i18n/angular-locale_fil.js",
-                        "i18n/angular-locale_fr-be.js",
-                        "i18n/angular-locale_fr-bf.js",
-                        "i18n/angular-locale_fr-bi.js",
-                        "i18n/angular-locale_fr-bj.js",
-                        "i18n/angular-locale_fr-bl.js",
-                        "i18n/angular-locale_fr-ca.js",
-                        "i18n/angular-locale_fr-cd.js",
-                        "i18n/angular-locale_fr-cf.js",
-                        "i18n/angular-locale_fr-cg.js",
-                        "i18n/angular-locale_fr-ch.js",
-                        "i18n/angular-locale_fr-ci.js",
-                        "i18n/angular-locale_fr-cm.js",
-                        "i18n/angular-locale_fr-dj.js",
-                        "i18n/angular-locale_fr-fr.js",
-                        "i18n/angular-locale_fr-ga.js",
-                        "i18n/angular-locale_fr-gf.js",
-                        "i18n/angular-locale_fr-gn.js",
-                        "i18n/angular-locale_fr-gp.js",
-                        "i18n/angular-locale_fr-gq.js",
-                        "i18n/angular-locale_fr-km.js",
-                        "i18n/angular-locale_fr-lu.js",
-                        "i18n/angular-locale_fr-mc.js",
-                        "i18n/angular-locale_fr-mf.js",
-                        "i18n/angular-locale_fr-mg.js",
-                        "i18n/angular-locale_fr-ml.js",
-                        "i18n/angular-locale_fr-mq.js",
-                        "i18n/angular-locale_fr-ne.js",
-                        "i18n/angular-locale_fr-re.js",
-                        "i18n/angular-locale_fr-yt.js",
-                        "i18n/angular-locale_fr.js",
-                        "i18n/angular-locale_gl-es.js",
-                        "i18n/angular-locale_gl.js",
-                        "i18n/angular-locale_gsw-ch.js",
-                        "i18n/angular-locale_gsw.js",
-                        "i18n/angular-locale_gu-in.js",
-                        "i18n/angular-locale_gu.js",
-                        "i18n/angular-locale_he-il.js",
-                        "i18n/angular-locale_he.js",
-                        "i18n/angular-locale_hi-in.js",
-                        "i18n/angular-locale_hi.js",
-                        "i18n/angular-locale_hr-hr.js",
-                        "i18n/angular-locale_hr.js",
-                        "i18n/angular-locale_hu-hu.js",
-                        "i18n/angular-locale_hu.js",
-                        "i18n/angular-locale_id-id.js",
-                        "i18n/angular-locale_id.js",
-                        "i18n/angular-locale_in.js",
-                        "i18n/angular-locale_is-is.js",
-                        "i18n/angular-locale_is.js",
-                        "i18n/angular-locale_it-it.js",
-                        "i18n/angular-locale_it-sm.js",
-                        "i18n/angular-locale_it.js",
-                        "i18n/angular-locale_iw.js",
-                        "i18n/angular-locale_ja-jp.js",
-                        "i18n/angular-locale_ja.js",
-                        "i18n/angular-locale_kn-in.js",
-                        "i18n/angular-locale_kn.js",
-                        "i18n/angular-locale_ko-kr.js",
-                        "i18n/angular-locale_ko.js",
-                        "i18n/angular-locale_ln-cd.js",
-                        "i18n/angular-locale_ln.js",
-                        "i18n/angular-locale_lt-lt.js",
-                        "i18n/angular-locale_lt.js",
-                        "i18n/angular-locale_lv-lv.js",
-                        "i18n/angular-locale_lv.js",
-                        "i18n/angular-locale_ml-in.js",
-                        "i18n/angular-locale_ml.js",
-                        "i18n/angular-locale_mr-in.js",
-                        "i18n/angular-locale_mr.js",
-                        "i18n/angular-locale_ms-my.js",
-                        "i18n/angular-locale_ms.js",
-                        "i18n/angular-locale_mt-mt.js",
-                        "i18n/angular-locale_mt.js",
-                        "i18n/angular-locale_nl-cw.js",
-                        "i18n/angular-locale_nl-nl.js",
-                        "i18n/angular-locale_nl-sx.js",
-                        "i18n/angular-locale_nl.js",
-                        "i18n/angular-locale_no.js",
-                        "i18n/angular-locale_or-in.js",
-                        "i18n/angular-locale_or.js",
-                        "i18n/angular-locale_pl-pl.js",
-                        "i18n/angular-locale_pl.js",
-                        "i18n/angular-locale_pt-br.js",
-                        "i18n/angular-locale_pt-pt.js",
-                        "i18n/angular-locale_pt.js",
-                        "i18n/angular-locale_ro-ro.js",
-                        "i18n/angular-locale_ro.js",
-                        "i18n/angular-locale_ru-ru.js",
-                        "i18n/angular-locale_ru.js",
-                        "i18n/angular-locale_sk-sk.js",
-                        "i18n/angular-locale_sk.js",
-                        "i18n/angular-locale_sl-si.js",
-                        "i18n/angular-locale_sl.js",
-                        "i18n/angular-locale_sq-al.js",
-                        "i18n/angular-locale_sq.js",
-                        "i18n/angular-locale_sr-cyrl-rs.js",
-                        "i18n/angular-locale_sr-latn-rs.js",
-                        "i18n/angular-locale_sr.js",
-                        "i18n/angular-locale_sv-se.js",
-                        "i18n/angular-locale_sv.js",
-                        "i18n/angular-locale_sw-tz.js",
-                        "i18n/angular-locale_sw.js",
-                        "i18n/angular-locale_ta-in.js",
-                        "i18n/angular-locale_ta.js",
-                        "i18n/angular-locale_te-in.js",
-                        "i18n/angular-locale_te.js",
-                        "i18n/angular-locale_th-th.js",
-                        "i18n/angular-locale_th.js",
-                        "i18n/angular-locale_tl.js",
-                        "i18n/angular-locale_tr-tr.js",
-                        "i18n/angular-locale_tr.js",
-                        "i18n/angular-locale_uk-ua.js",
-                        "i18n/angular-locale_uk.js",
-                        "i18n/angular-locale_ur-pk.js",
-                        "i18n/angular-locale_ur.js",
-                        "i18n/angular-locale_vi-vn.js",
-                        "i18n/angular-locale_vi.js",
-                        "i18n/angular-locale_zh-cn.js",
-                        "i18n/angular-locale_zh-hans-cn.js",
-                        "i18n/angular-locale_zh-hk.js",
-                        "i18n/angular-locale_zh-tw.js",
-                        "i18n/angular-locale_zh.js",
-                        "i18n/angular-locale_zu-za.js",
-                        "i18n/angular-locale_zu.js"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Shim repository for Angular.js",
-            "homepage": "http://angularjs.org",
-            "time": "2015-06-07T20:10:38+00:00"
-        },
-        {
-            "name": "components/bootstrap",
-            "version": "3.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/bootstrap.git",
-                "reference": "5d60b2efd3159e1a9e203901849b3493c5aac61f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/bootstrap/zipball/5d60b2efd3159e1a9e203901849b3493c5aac61f",
-                "reference": "5d60b2efd3159e1a9e203901849b3493c5aac61f",
-                "shasum": ""
-            },
-            "require": {
-                "components/jquery": "1.9.1 - 3"
-            },
-            "suggest": {
-                "components/bootstrap-default": "Provide a theme for Bootstrap as components/bootstrap only provides the CSS as file assets"
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "js/bootstrap.js"
-                    ],
-                    "files": [
-                        "js/*.js",
-                        "css/*.css",
-                        "css/*.map",
-                        "fonts/*",
-                        "less/mixins/*.less",
-                        "less/*.less"
-                    ],
-                    "shim": {
-                        "deps": [
-                            "jquery"
-                        ]
-                    }
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacob Thornton",
-                    "email": "jacobthornton@gmail.com"
-                },
-                {
-                    "name": "Mark Otto",
-                    "email": "markdotto@gmail.com"
-                }
-            ],
-            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "homepage": "http://getbootstrap.com",
-            "keywords": [
-                "css",
-                "framework",
-                "front-end",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ],
-            "time": "2018-12-14T15:55:15+00:00"
-        },
-        {
-            "name": "components/jquery",
-            "version": "3.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/jquery.git",
-                "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/459648cda77875519c5da3ae1dd0ed5d170aa649",
-                "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649",
-                "shasum": ""
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "jquery.js"
-                    ],
-                    "files": [
-                        "jquery.min.js",
-                        "jquery.min.map",
-                        "jquery.slim.js",
-                        "jquery.slim.min.js",
-                        "jquery.slim.min.map"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "JS Foundation and other contributors"
-                }
-            ],
-            "description": "jQuery JavaScript Library",
-            "homepage": "http://jquery.com",
-            "time": "2018-03-04T13:23:48+00:00"
-        },
-        {
-            "name": "container-interop/container-interop",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/container-interop/container-interop.git",
-                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/79cbf1341c22ec75643d841642dd5d6acd83bdb8",
-                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8",
-                "shasum": ""
-            },
-            "require": {
-                "psr/container": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Interop\\Container\\": "src/Interop/Container/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-            "homepage": "https://github.com/container-interop/container-interop",
-            "time": "2017-02-14T19:40:03+00:00"
-        },
-        {
-            "name": "kriswallsmith/assetic",
-            "version": "v1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
-                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1",
-                "symfony/process": "~2.1|~3.0"
-            },
-            "conflict": {
-                "twig/twig": "<1.27"
-            },
-            "require-dev": {
-                "leafo/lessphp": "^0.3.7",
-                "leafo/scssphp": "~0.1",
-                "meenie/javascript-packer": "^1.1",
-                "mrclay/minify": "<2.3",
-                "natxet/cssmin": "3.0.4",
-                "patchwork/jsqueeze": "~1.0|~2.0",
-                "phpunit/phpunit": "~4.8 || ^5.6",
-                "psr/log": "~1.0",
-                "ptachoire/cssembed": "~1.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0",
-                "twig/twig": "~1.23|~2.0",
-                "yfix/packager": "dev-master"
-            },
-            "suggest": {
-                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
-                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
-                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
-                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
-                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
-                "twig/twig": "Assetic provides the integration with the Twig templating engine"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Assetic": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
-            "description": "Asset Management for PHP",
-            "homepage": "https://github.com/kriswallsmith/assetic",
-            "keywords": [
-                "assets",
-                "compression",
-                "minification"
-            ],
-            "time": "2016-11-11T18:43:20+00:00"
-        },
-        {
             "name": "monolog/monolog",
-            "version": "1.24.0",
+            "version": "1.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+                "reference": "c6b00f05152ae2c9b04a448f99c7590beb6042f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
-                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c6b00f05152ae2c9b04a448f99c7590beb6042f5",
+                "reference": "c6b00f05152ae2c9b04a448f99c7590beb6042f5",
                 "shasum": ""
             },
             "require": {
@@ -553,11 +31,10 @@
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "jakub-onderka/php-parallel-lint": "0.9",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
+                "phpstan/phpstan": "^0.12.59",
                 "phpunit/phpunit": "~4.5",
-                "phpunit/phpunit-mock-objects": "2.3.0",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
@@ -576,11 +53,6 @@
                 "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
@@ -604,7 +76,21 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2018-11-05T09:00:11+00:00"
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/1.26.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-28T08:32:12+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -650,33 +136,37 @@
                 "router",
                 "routing"
             ],
+            "support": {
+                "issues": "https://github.com/nikic/FastRoute/issues",
+                "source": "https://github.com/nikic/FastRoute/tree/master"
+            },
             "time": "2018-02-13T20:26:39+00:00"
         },
         {
             "name": "pimple/pimple",
-            "version": "v3.2.3",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32"
+                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/9e403941ef9d65d20cba7d54e29fe906db42cf32",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
+                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "psr/container": "^1.0"
+                "php": ">=7.2.5",
+                "psr/container": "^1.1 || ^2.0"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "^3.2"
+                "symfony/phpunit-bridge": "^5.4@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2.x-dev"
+                    "dev-master": "3.4.x-dev"
                 }
             },
             "autoload": {
@@ -695,36 +185,34 @@
                 }
             ],
             "description": "Pimple, a simple Dependency Injection Container",
-            "homepage": "http://pimple.sensiolabs.org",
+            "homepage": "https://pimple.symfony.com",
             "keywords": [
                 "container",
                 "dependency injection"
             ],
-            "time": "2018-01-21T07:42:36+00:00"
+            "support": {
+                "source": "https://github.com/silexphp/Pimple/tree/v3.5.0"
+            },
+            "time": "2021-10-28T11:13:42+00:00"
         },
         {
             "name": "psr/container",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
-                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.2.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Psr\\Container\\": "src/"
@@ -737,7 +225,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common Container Interface (PHP FIG PSR-11)",
@@ -749,7 +237,11 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14T16:28:37+00:00"
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/1.1.1"
+            },
+            "time": "2021-03-05T17:36:06+00:00"
         },
         {
             "name": "psr/http-message",
@@ -799,20 +291,23 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
@@ -821,7 +316,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -836,7 +331,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for logging libraries",
@@ -846,72 +341,29 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
-        },
-        {
-            "name": "robloach/component-installer",
-            "version": "0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "908a859aa7c4949ba9ad67091e67bac10b66d3d7"
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/908a859aa7c4949ba9ad67091e67bac10b66d3d7",
-                "reference": "908a859aa7c4949ba9ad67091e67bac10b66d3d7",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "kriswallsmith/assetic": "1.*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "composer/composer": "1.*@alpha",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                },
-                "class": "ComponentInstaller\\ComponentInstallerPlugin"
-            },
-            "autoload": {
-                "psr-0": {
-                    "ComponentInstaller": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rob Loach",
-                    "homepage": "http://robloach.net"
-                }
-            ],
-            "description": "Allows installation of Components via Composer.",
-            "time": "2015-08-10T12:35:38+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "slim/slim",
-            "version": "3.12.0",
+            "version": "3.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "f4947cc900b6e51cbfda58b9f1247bca2f76f9f0"
+                "reference": "1c9318a84ffb890900901136d620b4f03a59da38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/f4947cc900b6e51cbfda58b9f1247bca2f76f9f0",
-                "reference": "f4947cc900b6e51cbfda58b9f1247bca2f76f9f0",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/1c9318a84ffb890900901136d620b4f03a59da38",
+                "reference": "1c9318a84ffb890900901136d620b4f03a59da38",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "^1.2",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
                 "nikic/fast-route": "^1.0",
                 "php": ">=5.5.0",
                 "pimple/pimple": "^3.0",
@@ -937,24 +389,24 @@
             ],
             "authors": [
                 {
-                    "name": "Rob Allen",
-                    "email": "rob@akrabat.com",
-                    "homepage": "http://akrabat.com"
-                },
-                {
                     "name": "Josh Lockhart",
                     "email": "hello@joshlockhart.com",
                     "homepage": "https://joshlockhart.com"
                 },
                 {
-                    "name": "Gabriel Manricks",
-                    "email": "gmanricks@me.com",
-                    "homepage": "http://gabrielmanricks.com"
-                },
-                {
                     "name": "Andrew Smith",
                     "email": "a.smith@silentworks.co.uk",
                     "homepage": "http://silentworks.co.uk"
+                },
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                },
+                {
+                    "name": "Gabriel Manricks",
+                    "email": "gmanricks@me.com",
+                    "homepage": "http://gabrielmanricks.com"
                 }
             ],
             "description": "Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs",
@@ -965,31 +417,30 @@
                 "micro",
                 "router"
             ],
-            "time": "2019-01-15T13:21:25+00:00"
+            "support": {
+                "issues": "https://github.com/slimphp/Slim/issues",
+                "source": "https://github.com/slimphp/Slim/tree/3.x"
+            },
+            "time": "2019-11-28T17:40:33+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.4.21",
+            "version": "v3.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "12f86295c46c36af9896cf21db6b6b8a1465315d"
+                "reference": "da3d9da2ce0026771f5fe64cb332158f1bd2bc33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/12f86295c46c36af9896cf21db6b6b8a1465315d",
-                "reference": "12f86295c46c36af9896cf21db6b6b8a1465315d",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/da3d9da2ce0026771f5fe64cb332158f1bd2bc33",
+                "reference": "da3d9da2ce0026771f5fe64cb332158f1bd2bc33",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\CssSelector\\": ""
@@ -1004,12 +455,12 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
                     "name": "Symfony Community",
@@ -1018,20 +469,37 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-02T09:30:52+00:00"
+            "support": {
+                "source": "https://github.com/symfony/css-selector/tree/v3.4.47"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.4.21",
+            "version": "v3.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "311f666d85d1075b0a294ba1f3de4ae9307d8180"
+                "reference": "ef97bcfbae5b384b4ca6c8d57b617722f15241a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/311f666d85d1075b0a294ba1f3de4ae9307d8180",
-                "reference": "311f666d85d1075b0a294ba1f3de4ae9307d8180",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/ef97bcfbae5b384b4ca6c8d57b617722f15241a6",
+                "reference": "ef97bcfbae5b384b4ca6c8d57b617722f15241a6",
                 "shasum": ""
             },
             "require": {
@@ -1046,11 +514,6 @@
                 "symfony/css-selector": ""
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\DomCrawler\\": ""
@@ -1075,24 +538,44 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-01T13:45:19+00:00"
+            "support": {
+                "source": "https://github.com/symfony/dom-crawler/tree/v3.4.47"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-24T10:57:07+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.10.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
+                "reference": "30885182c981ab175d4d034db0f6f469898070ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/30885182c981ab175d4d034db0f6f469898070ab",
+                "reference": "30885182c981ab175d4d034db0f6f469898070ab",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
+            },
+            "provide": {
+                "ext-ctype": "*"
             },
             "suggest": {
                 "ext-ctype": "For best performance"
@@ -1100,7 +583,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "autoload": {
@@ -1117,12 +604,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                },
-                {
                     "name": "Gert de Pagter",
                     "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -1133,24 +620,44 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-10-20T20:35:02+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.10.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
-                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
+            },
+            "provide": {
+                "ext-mbstring": "*"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -1158,7 +665,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "autoload": {
@@ -1192,56 +703,24 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21T13:07:52+00:00"
-        },
-        {
-            "name": "symfony/process",
-            "version": "v3.4.21",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/process.git",
-                "reference": "0d41dd7d95ed179aed6a13393b0f4f97bfa2d25c"
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/0d41dd7d95ed179aed6a13393b0f4f97bfa2d25c",
-                "reference": "0d41dd7d95ed179aed6a13393b0f4f97bfa2d25c",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Process\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+            "funding": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
                 },
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
                 }
             ],
-            "description": "Symfony Process Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-01-02T21:24:08+00:00"
+            "time": "2021-11-30T18:21:41+00:00"
         }
     ],
     "packages-dev": [],
@@ -1254,5 +733,6 @@
         "php": ">=7.0.0",
         "ext-curl": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
 }

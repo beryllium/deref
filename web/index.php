@@ -19,7 +19,7 @@ $app->get('/', function(Request $request) use ($container) {
 <html>
   <head>
     <title>Deref</title>
-    <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/css/app.css" rel="stylesheet"/>
   </head>
   <body ng-app="DerefApp">
@@ -97,15 +97,14 @@ $app->get('/', function(Request $request) use ($container) {
     ]
 }</pre>
             </div>
-        </div>
+        </div>  
         </div>
       </div>
       <p class="text-center">a <a href="https://whateverthing.com">whateverthing</a> project</p>
     </div>
-    <script src="components/jquery/jquery.js"></script>
-    <script src="components/bootstrap/js/bootstrap.min.js"></script>
-    <script src="components/angularjs/angular.js"></script>
-    <script src="components/angularjs/angular-route.js"></script>
+    <script src="https://unpkg.com/jquery@3.2.1/dist/jquery.slim.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/angular@1.3.20/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
