@@ -6,6 +6,10 @@ body {
     display: none;
 }
 
+.results-box .list-group-item {
+    overflow-wrap: break-word;
+}
+
 input#derefUrl {
     margin-bottom: 16px;
 }
