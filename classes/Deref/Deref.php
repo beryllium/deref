@@ -2,6 +2,7 @@
 
 namespace Deref;
 
+use Beryllium\Cache\Cache;
 use Deref\Exceptions\CommunicationException;
 use Deref\Exceptions\InvalidUrlException;
 use Deref\Exceptions\TooManyRedirectsException;
@@ -16,6 +17,11 @@ class Deref
 
     protected $maxHops;
     protected $userAgent;  // used for fixing an issue with facebook redirecting to "/unsupported-browser"
+
+    /**
+     * @var Cache
+     */
+    private $cache = null;
 
     public function __construct(int $maxHops = 10, string $userAgent = 'deref')
     {
@@ -45,6 +51,13 @@ class Deref
         }
 
         $url  = $this->filterUrl($url);
+
+        // Check for a recent copy in the cache and return one, if found
+        $cachedResult = $this->getCachedResult($url);
+        if ($cachedResult) {
+            return $cachedResult;
+        }
+
         $curl = $this->getCurlClient($url);
 
         $startTime = microtime(true);
@@ -69,7 +82,10 @@ class Deref
         // If this is an HTTP 301/302 redirect response, that means we've got to go deeper
         // Recurse with a $depth + 1 to make sure we don't go too deep
         if ($redirect) {
-            return array_merge([$url], $this->getRedirectLog($redirect, $depth + 1, $checkMeta));
+            $fetchedResult = array_merge([$url], $this->getRedirectLog($redirect, $depth + 1, $checkMeta));
+            $this->cacheResult($url, $fetchedResult);
+
+            return $fetchedResult;
         }
 
         // If this is an HTTP 200 response, we must fetch the body (at least the first few KB)
@@ -77,8 +93,14 @@ class Deref
         $metaRedirect = $this->checkMetaRedirectUrl($url, $checkMeta);
         if ($metaRedirect) {
             $this->logger->debug('found meta redirect URL', ['url' => $metaRedirect]);
-            return array_merge([$url], $this->getRedirectLog($metaRedirect, $depth + 1, $checkMeta));
+
+            $fetchedResult = array_merge([$url], $this->getRedirectLog($metaRedirect, $depth + 1, $checkMeta));
+            $this->cacheResult($url, $fetchedResult);
+
+            return $fetchedResult;
         }
+
+        $this->cacheResult($url, [$url]);
 
         return [$url];
     }
@@ -205,5 +227,28 @@ class Deref
         curl_setopt_array($curl, $opts);
 
         return $curl;
+    }
+
+    public function setCache(Cache $cache)
+    {
+        $this->cache = $cache;
+    }
+
+    protected function cacheResult($url, $result)
+    {
+        if (!$this->cache) {
+            return;
+        }
+
+        $this->cache->set('url-' . md5($url), $result);
+    }
+
+    protected function getCachedResult($url)
+    {
+        if (!$this->cache) {
+            return null;
+        }
+
+        return $this->cache->get('url-' . md5($url));
     }
 }

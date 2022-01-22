@@ -1,5 +1,9 @@
 <?php
 
+use Beryllium\Cache\Client\ApcuClient;
+use Beryllium\Cache\Client\MemoryClient;
+use Beryllium\Cache\Wrapper\CascadeWrapper;
+
 require __DIR__ . '/vendor/autoload.php';
 
 $app       = new \Slim\App;
@@ -22,9 +26,30 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+// Caching
+$container['cache'] = function ($c) {
+    $apcuClient = new ApcuClient();
+    $memoryClient = new MemoryClient();
+
+    $clients = [];
+
+    if (apcu_enabled()) {
+        $clients[] = $apcuClient;
+    }
+
+    $clients[] = $memoryClient;
+
+    $cache = new Beryllium\Cache\Cache(new CascadeWrapper(...$clients));
+    $cache->setTtl(300);
+    $cache->setPrefix('deref-');
+
+    return $cache;
+};
+
 // Deref application service
 $container['deref'] = function ($c) {
     $deref = new \Deref\Deref();
+    $deref->setCache($c['cache']);
 
     $logger = $c['logger'];
 
